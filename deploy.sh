@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 oc apply -f manifests/openwebui-pj.yaml
 oc apply -f manifests/openwebui-scc.yaml
