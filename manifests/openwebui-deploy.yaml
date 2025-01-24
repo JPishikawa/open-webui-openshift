@@ -25,4 +25,15 @@ spec:
           envFrom:
           - configMapRef:
               name: open-webui
+          env:
+          - name: SSL_CERT_FILE
+            value: "/etc/ssl/certs/service-ca.crt"
           imagePullPolicy: IfNotPresent
+          volumeMounts:
+          - name: cert-volume
+            mountPath: /etc/ssl/certs
+            readOnly: true
+      volumes:
+      - name: cert-volume
+        configMap:
+          name: openshift-service-ca.crt
