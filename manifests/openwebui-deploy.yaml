@@ -33,7 +33,13 @@ spec:
           - name: cert-volume
             mountPath: /etc/ssl/certs
             readOnly: true
+          - name: data-volume
+            mountPath: /app/backend/data
+            readOnly: false
       volumes:
       - name: cert-volume
         configMap:
           name: openshift-service-ca.crt
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: openwebui-pvc
