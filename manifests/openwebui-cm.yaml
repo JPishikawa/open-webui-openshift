@@ -4,6 +4,7 @@ metadata:
   name: open-webui
   namespace: app-webui
 data:
-  WEBUI_AUTH: 'False'
-  OPENAI_API_BASE_URLS: 'https://gemma2-llm-serving.apps.rosa.mycluster2.4mbo.p3.openshiftapps.com/v1'
+  WEBUI_AUTH: "False"
+  OPENAI_API_BASE_URLS: "https://gemma2-llm-serving.apps.rosa.mycluster2.4mbo.p3.openshiftapps.com/v1"
   OPENAI_API_KEYS: na
+  ENABLE_RAG_HYBRID_SEARCH: "True"

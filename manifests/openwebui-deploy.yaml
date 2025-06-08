@@ -18,28 +18,20 @@ spec:
     spec:
       containers:
         - name: open-webui
-          image: 'ghcr.io/open-webui/open-webui:main'
+          image: "ghcr.io/open-webui/open-webui:main"
           ports:
             - containerPort: 8080
               protocol: TCP
           envFrom:
-          - configMapRef:
-              name: open-webui
+            - configMapRef:
+                name: open-webui
           env:
-          - name: SSL_CERT_FILE
-            value: "/etc/ssl/certs/service-ca.crt"
           imagePullPolicy: IfNotPresent
           volumeMounts:
-          - name: cert-volume
-            mountPath: /etc/ssl/certs
-            readOnly: true
-          - name: data-volume
-            mountPath: /app/backend/data
-            readOnly: false
+            - name: data-volume
+              mountPath: /app/backend/data
+              readOnly: false
       volumes:
-      - name: cert-volume
-        configMap:
-          name: openshift-service-ca.crt
-      - name: data-volume
-        persistentVolumeClaim:
-          claimName: openwebui-pvc
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: openwebui-pvc
